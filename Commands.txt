@@ -1,0 +1,3 @@
+cd programs/BTReceiveTest/src
+nxjc BTReceive.java
+nxj -r -o BTReceive.nxj BTReceive
