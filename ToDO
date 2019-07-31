@@ -1,5 +1,4 @@
 ToDO:
-Find accurate rotation, look into piloted motors/
+Find accurate rotation, look into rotating one and reversing other to stay on spot.
 if that doesnt work track its turn on an axis and stop it at the correct degrees,
-not sure about tank tracks and turns
 >create android app<
