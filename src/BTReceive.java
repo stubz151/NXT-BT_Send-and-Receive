@@ -25,10 +25,8 @@ public class BTReceive {
             LCD.refresh ();
             dis=btc.openDataInputStream ();
             BTThread bthread = new BTThread (dis);
-            LCD.refresh ();
-            Thread.sleep (200);
             bthread.run ();
-            bthread.join ();
+            bthread.join (500);
             // DataOutputStream dos = btc.openDataOutputStream ();
 
         } catch (InterruptedException e )
