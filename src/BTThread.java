@@ -38,12 +38,11 @@ public class BTThread extends Thread {
                 ;
                 }
            try {
-               Thread.sleep(500);
+               Thread.sleep(10);
            } catch (InterruptedException e) {
                e.printStackTrace();
            }
            int choice = workingCommands.get(i);
-
                 if (choice == 567) {
                     runner = false;
                     break;
@@ -52,7 +51,7 @@ public class BTThread extends Thread {
                    move(choice);
                 }
            try {
-               Thread.sleep(1000);
+               Thread.sleep(100);
            } catch (InterruptedException e) {
                e.printStackTrace();
            }
@@ -111,7 +110,7 @@ public class BTThread extends Thread {
                 boolean blocked=false;
                 Motor.A.setSpeed(360);
                 Motor.B.setSpeed(360);
-                while(!blocked)
+                while(!blocked || !Motor.A.isMoving() || !Motor.B.isMoving())
                 {
                     if (sonicForward.getDistance()<10)
                     {
@@ -120,7 +119,7 @@ public class BTThread extends Thread {
                         LCD.refresh();
                         break;
                     }
-                    LCD.drawString("ForwardLoop", 0, 0);
+                    LCD.drawString("Forward Loop", 0, 0);
                     LCD.refresh();
                     Motor.A.rotate(720, true);
                     Motor.B.rotate(720, true);
@@ -130,7 +129,7 @@ public class BTThread extends Thread {
                 boolean blockedBack=false;
                 Motor.A.setSpeed(360);
                 Motor.B.setSpeed(360);
-                while(!blockedBack)
+                while(!blockedBack || !Motor.A.isMoving() || !Motor.B.isMoving())
                 {
                     if (sonicBackward.getDistance()<10)
                     {
@@ -139,7 +138,7 @@ public class BTThread extends Thread {
                         LCD.refresh();
                         break;
                     }
-                    LCD.drawString("BackwardsLoop", 0, 0);
+                    LCD.drawString("Backwards Loop", 0, 0);
                     LCD.refresh();
                     Motor.A.rotate(-720, true);
                     Motor.B.rotate(-720, true);
